@@ -1064,6 +1064,36 @@ void PostorderTrav(BstNode *root) {
 
 ////////////////////////////////////
 
+BstNode* InorderSuccessor(BST *T, int x) {
+  if (!T->root)
+    return NULL;
+ 
+  BstNode *buf = findBST(T->root, x);
+  if (!buf) return NULL;
+  
+  if (buf->right) {
+    buf = buf->right;
+    while (buf->left)
+      buf = buf->left;
+    return buf;
+
+  } else {
+    BstNode *ancestor = T->root;
+    BstNode *successor = NULL;
+    while (x != ancestor->data) {
+      if (x < ancestor->data) {
+        successor = ancestor;
+        ancestor = ancestor->left;
+      } else {
+        ancestor = ancestor->right;
+      }
+    }
+    return successor;
+  }
+}
+
+////////////////////////////////////
+
 bool checkBST(BST *T) {
   if (!T->root) {
     cout << "Tree is empty.\n";
@@ -1132,36 +1162,6 @@ BstNode* removeBst(BST *T, BstNode *root, int x) {
 }
 
 //////////////////////////////////
-
-BstNode* InorderSuccessor(BST *T, int x) {
-  if (!T->root)
-    return NULL;
- 
-  BstNode *buf = findBST(T->root, x);
-  if (!buf) return NULL;
-  
-  if (buf->right) {
-    buf = buf->right;
-    while (buf->left)
-      buf = buf->left;
-    return buf;
-
-  } else {
-    BstNode *ancestor = T->root;
-    BstNode *successor = NULL;
-    while (x != ancestor->data) {
-      if (x < ancestor->data) {
-        successor = ancestor;
-        ancestor = ancestor->left;
-      } else {
-        ancestor = ancestor->right;
-      }
-    }
-    return successor;
-  }
-}
-
-////////////////////////////////////
 
 void deleteBST(BST **T) {
   if (!(*T)->root) {
