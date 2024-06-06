@@ -10,4 +10,4 @@ The data contained within these structures is implemented as int.
 It can be changed, but then the functions implementation must be changed accordignly.
 
 If you have any extra function that can be added to these, please be welcome to provide,
-As I constantly check the Pull Requeusts. 
+as I constantly check the Pull Requeusts. 
