@@ -11,3 +11,9 @@ It can be changed, but then the functions implementation must be changed accordi
 
 If you have any extra function that can be added to these, please be welcome to provide,
 as I constantly check the Pull Requeusts. 
+
+<br>
+"main1.cpp" contains some unit tests for the first library.
+<br>
+"main2.cpp" respectively for the second library.
+<br>
